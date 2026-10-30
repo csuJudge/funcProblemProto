@@ -23,7 +23,7 @@ service ProblemServer {
 }
 
 message QueryContestProblemReq {
-  string problemID = 1; // 题目编号
+  int32 contestID = 1;  // 作业编号
   int32 userID    = 2;  // 用户编号
   int32 contestType = 3; // 作业类型
 }
@@ -44,36 +44,16 @@ message QueryContestProblemReqRsp {
   repeated ContestProblem problems = 3;  //  作业的题目列表
 }
 
-message UpdateProblemStatusReq{
-  int32 userID    = 1;  // 用户主键
-  int32 problemID = 2;  // 题目主键
-  int32 status    = 3;  // 状态
+message QueryProblemNameReq {
+  int32 userID = 1;  // 用户编号
+  string courseIDs = 2; // 课程编号
 }
 
-message UpdateProblemReq{
-  int32 problemID = 1; // 题目编号
-  int32 type = 2; // 类型
-  string title = 3; // 题目名称
-  string description = 4; // 题目描述
-  string inputDescription = 5; // 输入描述
-  string outputDescription = 6; // 输出描述
-  int32 totalPoints = 7; // 满分
-  int32 timeLimit = 8; // 时间上限
-  int32 memoryLimit = 9; // 内存上限
-  int32 jdkVersion = 10; // jdk版本
-  string oopJSON = 11; // OOP特性检查项
-  int32 enable = 12; // 状态
-  int32 updater = 13; // 更新时间
-}
-
-message QueryProblemListReq{
-  int32 page       = 1;  // 页
-  int32 limit      = 2;  // 页大小
-  int32 userID     = 3;  // 用户编号
-  string condition = 4;  // 条件（名称或者编号）
-  string knowledge = 5;  // 知识点
-  string course    = 6;  // 课程
-  int32 difficulty = 7; // 难度
+message QueryAllProblemRsp {
+  string message           = 1;  // 返回信息
+  int32 code               = 2;  // 返回码
+  repeated Problem problem = 3;  // 问题列表
+  int32 total              = 4;  // 总数
 }
 
 message ProblemList {
@@ -87,73 +67,116 @@ message ProblemList {
   string knowledge = 8; // 知识点
 }
 
-message QueryProblemListRsp{
+message QueryProblemListRsp {
   string message               = 1;  // 返回信息
   int32 code                   = 2;  // 返回码
   repeated ProblemList problem = 3;  // 问题列表
   int32 total                  = 4;  // 总数
 }
 
-message QueryProblemReq{
+message QueryProblemListReq {
+  int32 page       = 1;  // 页
+  int32 limit      = 2;  // 页大小
+  int32 userID     = 3;  // 用户编号
+  string condition = 4;  // 条件（名称或者编号）
+  string knowledge = 5;  // 知识点
+  string course    = 6;  // 课程
+  int32 queryType = 7; // 请求类型
+  int32 difficulty = 8; // 难度
+}
+
+
+message UpdateProblemStatusReq {
+  int32 userID    = 1;  // 用户主键
+  int32 problemID = 2;  // 题目主键
+  int32 status    = 3;  // 状态
+}
+
+message UpdateProblemReq {
+  int32 problemID          = 1;   // 题目编号
+  string name              = 2;   // 题目名称
+  string description       = 3;   // 描述
+  string hint              = 4;   // 提示
+  string inputDescription  = 5;   // 输入描述
+  string outputDescription = 6;   // 输出描述
+  string input             = 7;   // 样例输入
+  string output            = 8;   // 样例输出
+  int32 timeLimit          = 9;   // 时间限制
+  int32 memoryLimit        = 10;  // 内存限制
+  string knowledges        = 11;  // 知识点
+  int32 difficulty         = 12;  // 难度
+  int32 userID             = 13;  // 用户编号
+  int32 type               = 14;  // 题目类型
+  string template          = 15;  // 模板
+  string courseIDs = 16; // 课程
+}
+
+message CommonRsp {
+  string message = 1;  // 返回信息
+  int32 code     = 2;  // 返回码
+}
+
+message AddProblemReq {
+  int32 userID             = 1;   // 用户编号
+  string name              = 2;   // 题目名称
+  string description       = 3;   // 描述
+  string hint              = 4;   // 提示
+  string inputDescription  = 5;   // 输入描述
+  string outputDescription = 6;   // 输出描述
+  string input             = 7;   // 样例输入
+  string output            = 8;   // 样例输出
+  int32 timeLimit          = 9;   // 时间限制
+  int32 memoryLimit        = 10;  // 内存限制
+  string knowledges        = 11;  // 知识点
+  int32 difficulty         = 12;  // 难度
+  int32 type               = 13;  // 题目类型
+  string template          = 14;  // 模板
+  string courseIDs = 15; // 课程
+}
+
+message QueryProblemReq {
   int32 problemID = 1;  // 问题编号
   int32 userID    = 2;  // 用户编号
   int32 contestID = 3;  // 作业编号
 }
 
-message QueryProblemRsp{
+message QueryProblemRsp {
   string message  = 1;  // 返回信息
   int32 code      = 2;  // 返回码
   Problem problem = 3;  // 问题
 }
 
 message Problem {
-  int32 id = 1; // 题目编号
-  int32 type = 2; // 类型
-  string title = 3; // 题目名称
-  string description = 4; // 题目描述
-  string inputDescription = 5; // 输入描述
-  string outputDescription = 6; // 输出描述
-  int32 totalPoints = 7; // 满分
-  int32 timeLimit = 8; // 时间上限
-  int32 memoryLimit = 9; // 内存上限
-  int32 jdkVersion = 10; // jdk版本
-  string oopJSON = 11; // OOP特性检查项
-  int32 enable = 12; // 状态
-  string createdTime = 13; // 创建时间
-  string updatedTime = 14; // 更新时间
-  int32 solved = 15; // 解决数
-  int32 submission = 16; // 提交数
-  string exampleInput = 17; // 输入样例
-  string exampleOutput = 18; // 输出样例
+  int32 problemID          = 1;   // 题目编号
+  string name              = 2;   // 题目名称
+  string description       = 3;   // 描述
+  string hint              = 4;   // 提示
+  int32 solved             = 5;   // 解决数
+  int32 submission         = 6;   // 提交数
+  string inputDescription  = 7;   // 输入描述
+  string outputDescription = 8;   // 输出描述
+  string input             = 9;   // 样例输入
+  string output            = 10;  // 样例输出
+  int32 timeLimit          = 11;  // 时间限制
+  int32 memoryLimit        = 12;  // 内存限制
+  repeated Knowledge knowledges        = 13;  // 知识点
+  int32 enable             = 14;  // 状态
+  int32 difficulty         = 15;  // 难度
+  string creator           = 16;  // 提交者
+  string updateTime        = 17;  // 修改时间
+  string createdTime       = 18;  // 创建时间
+  string updatedBy         = 19;  // 更新者
+  int32 type               = 20;  // 题目类型
+  string template          = 21;  // 模板
+  int32 creatorID = 22; // 用户编号
+  string courseIDs = 23; // 课程
 }
 
-message QueryProblemNameReq{
-  int32 userID = 1;  // 用户编号
-}
-
-message QueryAllProblemRsp{
-  string message           = 1;  // 返回信息
-  int32 code               = 2;  // 返回码
-  repeated Problem problem = 3;  // 问题列表
-  int32 total              = 4;  // 总数
-}
-
-message AddProblemReq{
-  int32 type = 1; // 类型
-  string title = 2; // 题目名称
-  string description = 3; // 题目描述
-  string inputDescription = 4; // 输入描述
-  string outputDescription = 5; // 输出描述
-  int32 totalPoints = 6; // 满分
-  int32 timeLimit = 7; // 时间上限
-  int32 memoryLimit = 8; // 内存上限
-  int32 jdkVersion = 9; // jdk版本
-  string oopJSON = 10; // OOP特性检查项
-  int32 enable = 11; // 状态
-  string creator = 12; // 创建时间
-}
-
-message CommonRsp{
-  string message = 1;  // 返回信息
-  int32 code     = 2;  // 返回码
+message Knowledge {
+  int32 id          = 1;  // 知识点主键
+  string name       = 2;  // 知识点名称
+  string creator    = 3;  // 创建者
+  string createTime = 4;  // 创建时间
+  int32 enable      = 5;  // 状态
+  int32 weight      = 6;  // 权重
 }
