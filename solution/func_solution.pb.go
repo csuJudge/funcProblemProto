@@ -2,7 +2,7 @@
 // versions:
 // 	protoc-gen-go v1.36.11
 // 	protoc        v5.29.3
-// source: func_solution.proto
+// source: solution/func_solution.proto
 
 package funcSolution
 
@@ -22,6 +22,126 @@ const (
 	_ = protoimpl.EnforceVersion(protoimpl.MaxVersion - 20)
 )
 
+type QueryUserProblemSolutionReq struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	UserID        int32                  `protobuf:"varint,1,opt,name=userID,proto3" json:"userID,omitempty"`    // 用户编号
+	Problems      string                 `protobuf:"bytes,2,opt,name=problems,proto3" json:"problems,omitempty"` // 题目编号集合
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *QueryUserProblemSolutionReq) Reset() {
+	*x = QueryUserProblemSolutionReq{}
+	mi := &file_solution_func_solution_proto_msgTypes[0]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *QueryUserProblemSolutionReq) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*QueryUserProblemSolutionReq) ProtoMessage() {}
+
+func (x *QueryUserProblemSolutionReq) ProtoReflect() protoreflect.Message {
+	mi := &file_solution_func_solution_proto_msgTypes[0]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use QueryUserProblemSolutionReq.ProtoReflect.Descriptor instead.
+func (*QueryUserProblemSolutionReq) Descriptor() ([]byte, []int) {
+	return file_solution_func_solution_proto_rawDescGZIP(), []int{0}
+}
+
+func (x *QueryUserProblemSolutionReq) GetUserID() int32 {
+	if x != nil {
+		return x.UserID
+	}
+	return 0
+}
+
+func (x *QueryUserProblemSolutionReq) GetProblems() string {
+	if x != nil {
+		return x.Problems
+	}
+	return ""
+}
+
+type QueryUserProblemSolutionRsp struct {
+	state            protoimpl.MessageState `protogen:"open.v1"`
+	Message          string                 `protobuf:"bytes,1,opt,name=message,proto3" json:"message,omitempty"`                   // 返回信息
+	Code             int32                  `protobuf:"varint,2,opt,name=code,proto3" json:"code,omitempty"`                        // 返回码
+	AcceptProblems   string                 `protobuf:"bytes,3,opt,name=acceptProblems,proto3" json:"acceptProblems,omitempty"`     // 正确的题目
+	UnAcceptProblems string                 `protobuf:"bytes,4,opt,name=unAcceptProblems,proto3" json:"unAcceptProblems,omitempty"` // 不正确的题目
+	unknownFields    protoimpl.UnknownFields
+	sizeCache        protoimpl.SizeCache
+}
+
+func (x *QueryUserProblemSolutionRsp) Reset() {
+	*x = QueryUserProblemSolutionRsp{}
+	mi := &file_solution_func_solution_proto_msgTypes[1]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *QueryUserProblemSolutionRsp) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*QueryUserProblemSolutionRsp) ProtoMessage() {}
+
+func (x *QueryUserProblemSolutionRsp) ProtoReflect() protoreflect.Message {
+	mi := &file_solution_func_solution_proto_msgTypes[1]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use QueryUserProblemSolutionRsp.ProtoReflect.Descriptor instead.
+func (*QueryUserProblemSolutionRsp) Descriptor() ([]byte, []int) {
+	return file_solution_func_solution_proto_rawDescGZIP(), []int{1}
+}
+
+func (x *QueryUserProblemSolutionRsp) GetMessage() string {
+	if x != nil {
+		return x.Message
+	}
+	return ""
+}
+
+func (x *QueryUserProblemSolutionRsp) GetCode() int32 {
+	if x != nil {
+		return x.Code
+	}
+	return 0
+}
+
+func (x *QueryUserProblemSolutionRsp) GetAcceptProblems() string {
+	if x != nil {
+		return x.AcceptProblems
+	}
+	return ""
+}
+
+func (x *QueryUserProblemSolutionRsp) GetUnAcceptProblems() string {
+	if x != nil {
+		return x.UnAcceptProblems
+	}
+	return ""
+}
+
 type AddSolutionRsp struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	Message       string                 `protobuf:"bytes,1,opt,name=message,proto3" json:"message,omitempty"`        // 返回信息
@@ -33,7 +153,7 @@ type AddSolutionRsp struct {
 
 func (x *AddSolutionRsp) Reset() {
 	*x = AddSolutionRsp{}
-	mi := &file_func_solution_proto_msgTypes[0]
+	mi := &file_solution_func_solution_proto_msgTypes[2]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -45,7 +165,7 @@ func (x *AddSolutionRsp) String() string {
 func (*AddSolutionRsp) ProtoMessage() {}
 
 func (x *AddSolutionRsp) ProtoReflect() protoreflect.Message {
-	mi := &file_func_solution_proto_msgTypes[0]
+	mi := &file_solution_func_solution_proto_msgTypes[2]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -58,7 +178,7 @@ func (x *AddSolutionRsp) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use AddSolutionRsp.ProtoReflect.Descriptor instead.
 func (*AddSolutionRsp) Descriptor() ([]byte, []int) {
-	return file_func_solution_proto_rawDescGZIP(), []int{0}
+	return file_solution_func_solution_proto_rawDescGZIP(), []int{2}
 }
 
 func (x *AddSolutionRsp) GetMessage() string {
@@ -107,7 +227,7 @@ type Solution struct {
 
 func (x *Solution) Reset() {
 	*x = Solution{}
-	mi := &file_func_solution_proto_msgTypes[1]
+	mi := &file_solution_func_solution_proto_msgTypes[3]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -119,7 +239,7 @@ func (x *Solution) String() string {
 func (*Solution) ProtoMessage() {}
 
 func (x *Solution) ProtoReflect() protoreflect.Message {
-	mi := &file_func_solution_proto_msgTypes[1]
+	mi := &file_solution_func_solution_proto_msgTypes[3]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -132,7 +252,7 @@ func (x *Solution) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use Solution.ProtoReflect.Descriptor instead.
 func (*Solution) Descriptor() ([]byte, []int) {
-	return file_func_solution_proto_rawDescGZIP(), []int{1}
+	return file_solution_func_solution_proto_rawDescGZIP(), []int{3}
 }
 
 func (x *Solution) GetSolutionID() int32 {
@@ -283,7 +403,7 @@ type AddSolutionReq struct {
 
 func (x *AddSolutionReq) Reset() {
 	*x = AddSolutionReq{}
-	mi := &file_func_solution_proto_msgTypes[2]
+	mi := &file_solution_func_solution_proto_msgTypes[4]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -295,7 +415,7 @@ func (x *AddSolutionReq) String() string {
 func (*AddSolutionReq) ProtoMessage() {}
 
 func (x *AddSolutionReq) ProtoReflect() protoreflect.Message {
-	mi := &file_func_solution_proto_msgTypes[2]
+	mi := &file_solution_func_solution_proto_msgTypes[4]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -308,7 +428,7 @@ func (x *AddSolutionReq) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use AddSolutionReq.ProtoReflect.Descriptor instead.
 func (*AddSolutionReq) Descriptor() ([]byte, []int) {
-	return file_func_solution_proto_rawDescGZIP(), []int{2}
+	return file_solution_func_solution_proto_rawDescGZIP(), []int{4}
 }
 
 func (x *AddSolutionReq) GetProblemID() int32 {
@@ -476,7 +596,7 @@ type QuerySolutionReq struct {
 
 func (x *QuerySolutionReq) Reset() {
 	*x = QuerySolutionReq{}
-	mi := &file_func_solution_proto_msgTypes[3]
+	mi := &file_solution_func_solution_proto_msgTypes[5]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -488,7 +608,7 @@ func (x *QuerySolutionReq) String() string {
 func (*QuerySolutionReq) ProtoMessage() {}
 
 func (x *QuerySolutionReq) ProtoReflect() protoreflect.Message {
-	mi := &file_func_solution_proto_msgTypes[3]
+	mi := &file_solution_func_solution_proto_msgTypes[5]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -501,7 +621,7 @@ func (x *QuerySolutionReq) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use QuerySolutionReq.ProtoReflect.Descriptor instead.
 func (*QuerySolutionReq) Descriptor() ([]byte, []int) {
-	return file_func_solution_proto_rawDescGZIP(), []int{3}
+	return file_solution_func_solution_proto_rawDescGZIP(), []int{5}
 }
 
 func (x *QuerySolutionReq) GetContestID() int32 {
@@ -586,7 +706,7 @@ type QuerySolutionRsp struct {
 
 func (x *QuerySolutionRsp) Reset() {
 	*x = QuerySolutionRsp{}
-	mi := &file_func_solution_proto_msgTypes[4]
+	mi := &file_solution_func_solution_proto_msgTypes[6]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -598,7 +718,7 @@ func (x *QuerySolutionRsp) String() string {
 func (*QuerySolutionRsp) ProtoMessage() {}
 
 func (x *QuerySolutionRsp) ProtoReflect() protoreflect.Message {
-	mi := &file_func_solution_proto_msgTypes[4]
+	mi := &file_solution_func_solution_proto_msgTypes[6]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -611,7 +731,7 @@ func (x *QuerySolutionRsp) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use QuerySolutionRsp.ProtoReflect.Descriptor instead.
 func (*QuerySolutionRsp) Descriptor() ([]byte, []int) {
-	return file_func_solution_proto_rawDescGZIP(), []int{4}
+	return file_solution_func_solution_proto_rawDescGZIP(), []int{6}
 }
 
 func (x *QuerySolutionRsp) GetMessage() string {
@@ -652,7 +772,7 @@ type CommonRsp struct {
 
 func (x *CommonRsp) Reset() {
 	*x = CommonRsp{}
-	mi := &file_func_solution_proto_msgTypes[5]
+	mi := &file_solution_func_solution_proto_msgTypes[7]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -664,7 +784,7 @@ func (x *CommonRsp) String() string {
 func (*CommonRsp) ProtoMessage() {}
 
 func (x *CommonRsp) ProtoReflect() protoreflect.Message {
-	mi := &file_func_solution_proto_msgTypes[5]
+	mi := &file_solution_func_solution_proto_msgTypes[7]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -677,7 +797,7 @@ func (x *CommonRsp) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CommonRsp.ProtoReflect.Descriptor instead.
 func (*CommonRsp) Descriptor() ([]byte, []int) {
-	return file_func_solution_proto_rawDescGZIP(), []int{5}
+	return file_solution_func_solution_proto_rawDescGZIP(), []int{7}
 }
 
 func (x *CommonRsp) GetMessage() string {
@@ -705,7 +825,7 @@ type QueryRuntimeInfoReq struct {
 
 func (x *QueryRuntimeInfoReq) Reset() {
 	*x = QueryRuntimeInfoReq{}
-	mi := &file_func_solution_proto_msgTypes[6]
+	mi := &file_solution_func_solution_proto_msgTypes[8]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -717,7 +837,7 @@ func (x *QueryRuntimeInfoReq) String() string {
 func (*QueryRuntimeInfoReq) ProtoMessage() {}
 
 func (x *QueryRuntimeInfoReq) ProtoReflect() protoreflect.Message {
-	mi := &file_func_solution_proto_msgTypes[6]
+	mi := &file_solution_func_solution_proto_msgTypes[8]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -730,7 +850,7 @@ func (x *QueryRuntimeInfoReq) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use QueryRuntimeInfoReq.ProtoReflect.Descriptor instead.
 func (*QueryRuntimeInfoReq) Descriptor() ([]byte, []int) {
-	return file_func_solution_proto_rawDescGZIP(), []int{6}
+	return file_solution_func_solution_proto_rawDescGZIP(), []int{8}
 }
 
 func (x *QueryRuntimeInfoReq) GetSolutionID() int32 {
@@ -766,7 +886,7 @@ type QueryRuntimeInfoRsp struct {
 
 func (x *QueryRuntimeInfoRsp) Reset() {
 	*x = QueryRuntimeInfoRsp{}
-	mi := &file_func_solution_proto_msgTypes[7]
+	mi := &file_solution_func_solution_proto_msgTypes[9]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -778,7 +898,7 @@ func (x *QueryRuntimeInfoRsp) String() string {
 func (*QueryRuntimeInfoRsp) ProtoMessage() {}
 
 func (x *QueryRuntimeInfoRsp) ProtoReflect() protoreflect.Message {
-	mi := &file_func_solution_proto_msgTypes[7]
+	mi := &file_solution_func_solution_proto_msgTypes[9]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -791,7 +911,7 @@ func (x *QueryRuntimeInfoRsp) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use QueryRuntimeInfoRsp.ProtoReflect.Descriptor instead.
 func (*QueryRuntimeInfoRsp) Descriptor() ([]byte, []int) {
-	return file_func_solution_proto_rawDescGZIP(), []int{7}
+	return file_solution_func_solution_proto_rawDescGZIP(), []int{9}
 }
 
 func (x *QueryRuntimeInfoRsp) GetMessage() string {
@@ -832,7 +952,7 @@ type QueryLatestCodeReq struct {
 
 func (x *QueryLatestCodeReq) Reset() {
 	*x = QueryLatestCodeReq{}
-	mi := &file_func_solution_proto_msgTypes[8]
+	mi := &file_solution_func_solution_proto_msgTypes[10]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -844,7 +964,7 @@ func (x *QueryLatestCodeReq) String() string {
 func (*QueryLatestCodeReq) ProtoMessage() {}
 
 func (x *QueryLatestCodeReq) ProtoReflect() protoreflect.Message {
-	mi := &file_func_solution_proto_msgTypes[8]
+	mi := &file_solution_func_solution_proto_msgTypes[10]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -857,7 +977,7 @@ func (x *QueryLatestCodeReq) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use QueryLatestCodeReq.ProtoReflect.Descriptor instead.
 func (*QueryLatestCodeReq) Descriptor() ([]byte, []int) {
-	return file_func_solution_proto_rawDescGZIP(), []int{8}
+	return file_solution_func_solution_proto_rawDescGZIP(), []int{10}
 }
 
 func (x *QueryLatestCodeReq) GetProblemID() int32 {
@@ -885,7 +1005,7 @@ type QueryLatestCodeRsp struct {
 
 func (x *QueryLatestCodeRsp) Reset() {
 	*x = QueryLatestCodeRsp{}
-	mi := &file_func_solution_proto_msgTypes[9]
+	mi := &file_solution_func_solution_proto_msgTypes[11]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -897,7 +1017,7 @@ func (x *QueryLatestCodeRsp) String() string {
 func (*QueryLatestCodeRsp) ProtoMessage() {}
 
 func (x *QueryLatestCodeRsp) ProtoReflect() protoreflect.Message {
-	mi := &file_func_solution_proto_msgTypes[9]
+	mi := &file_solution_func_solution_proto_msgTypes[11]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -910,7 +1030,7 @@ func (x *QueryLatestCodeRsp) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use QueryLatestCodeRsp.ProtoReflect.Descriptor instead.
 func (*QueryLatestCodeRsp) Descriptor() ([]byte, []int) {
-	return file_func_solution_proto_rawDescGZIP(), []int{9}
+	return file_solution_func_solution_proto_rawDescGZIP(), []int{11}
 }
 
 func (x *QueryLatestCodeRsp) GetMessage() string {
@@ -948,7 +1068,7 @@ type Code struct {
 
 func (x *Code) Reset() {
 	*x = Code{}
-	mi := &file_func_solution_proto_msgTypes[10]
+	mi := &file_solution_func_solution_proto_msgTypes[12]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -960,7 +1080,7 @@ func (x *Code) String() string {
 func (*Code) ProtoMessage() {}
 
 func (x *Code) ProtoReflect() protoreflect.Message {
-	mi := &file_func_solution_proto_msgTypes[10]
+	mi := &file_solution_func_solution_proto_msgTypes[12]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -973,7 +1093,7 @@ func (x *Code) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use Code.ProtoReflect.Descriptor instead.
 func (*Code) Descriptor() ([]byte, []int) {
-	return file_func_solution_proto_rawDescGZIP(), []int{10}
+	return file_solution_func_solution_proto_rawDescGZIP(), []int{12}
 }
 
 func (x *Code) GetCodeID() int32 {
@@ -1018,11 +1138,19 @@ func (x *Code) GetUserName() string {
 	return ""
 }
 
-var File_func_solution_proto protoreflect.FileDescriptor
+var File_solution_func_solution_proto protoreflect.FileDescriptor
 
-const file_func_solution_proto_rawDesc = "" +
+const file_solution_func_solution_proto_rawDesc = "" +
 	"\n" +
-	"\x13func_solution.proto\x12\x10oj.func.solution\"^\n" +
+	"\x1csolution/func_solution.proto\x12\x10oj.func.solution\"Q\n" +
+	"\x1bQueryUserProblemSolutionReq\x12\x16\n" +
+	"\x06userID\x18\x01 \x01(\x05R\x06userID\x12\x1a\n" +
+	"\bproblems\x18\x02 \x01(\tR\bproblems\"\x9f\x01\n" +
+	"\x1bQueryUserProblemSolutionRsp\x12\x18\n" +
+	"\amessage\x18\x01 \x01(\tR\amessage\x12\x12\n" +
+	"\x04code\x18\x02 \x01(\x05R\x04code\x12&\n" +
+	"\x0eacceptProblems\x18\x03 \x01(\tR\x0eacceptProblems\x12*\n" +
+	"\x10unAcceptProblems\x18\x04 \x01(\tR\x10unAcceptProblems\"^\n" +
 	"\x0eAddSolutionRsp\x12\x18\n" +
 	"\amessage\x18\x01 \x01(\tR\amessage\x12\x12\n" +
 	"\x04code\x18\x02 \x01(\x05R\x04code\x12\x1e\n" +
@@ -1129,80 +1257,85 @@ const file_func_solution_proto_rawDesc = "" +
 	"\bcodeName\x18\x03 \x01(\tR\bcodeName\x12\x1a\n" +
 	"\bcodeType\x18\x04 \x01(\x05R\bcodeType\x12\x1c\n" +
 	"\tcreatTime\x18\x05 \x01(\tR\tcreatTime\x12\x1a\n" +
-	"\buserName\x18\x06 \x01(\tR\buserName2\xde\x03\n" +
+	"\buserName\x18\x06 \x01(\tR\buserName2\xda\x04\n" +
 	"\x0eSolutionServer\x12b\n" +
 	"\x10QueryRuntimeInfo\x12%.oj.func.solution.QueryRuntimeInfoReq\x1a%.oj.func.solution.QueryRuntimeInfoRsp\"\x00\x12_\n" +
 	"\x0fQueryLatestCode\x12$.oj.func.solution.QueryLatestCodeReq\x1a$.oj.func.solution.QueryLatestCodeRsp\"\x00\x12Y\n" +
 	"\rQuerySolution\x12\".oj.func.solution.QuerySolutionReq\x1a\".oj.func.solution.QuerySolutionRsp\"\x00\x12W\n" +
 	"\x0fAddTestSolution\x12 .oj.func.solution.AddSolutionReq\x1a .oj.func.solution.AddSolutionRsp\"\x00\x12S\n" +
-	"\vAddSolution\x12 .oj.func.solution.AddSolutionReq\x1a .oj.func.solution.AddSolutionRsp\"\x00B3Z1github.com/csuJudge/funcProblemProto/funcSolutionb\x06proto3"
+	"\vAddSolution\x12 .oj.func.solution.AddSolutionReq\x1a .oj.func.solution.AddSolutionRsp\"\x00\x12z\n" +
+	"\x18QueryUserProblemSolution\x12-.oj.func.solution.QueryUserProblemSolutionReq\x1a-.oj.func.solution.QueryUserProblemSolutionRsp\"\x00B3Z1github.com/csuJudge/funcProblemProto/funcSolutionb\x06proto3"
 
 var (
-	file_func_solution_proto_rawDescOnce sync.Once
-	file_func_solution_proto_rawDescData []byte
+	file_solution_func_solution_proto_rawDescOnce sync.Once
+	file_solution_func_solution_proto_rawDescData []byte
 )
 
-func file_func_solution_proto_rawDescGZIP() []byte {
-	file_func_solution_proto_rawDescOnce.Do(func() {
-		file_func_solution_proto_rawDescData = protoimpl.X.CompressGZIP(unsafe.Slice(unsafe.StringData(file_func_solution_proto_rawDesc), len(file_func_solution_proto_rawDesc)))
+func file_solution_func_solution_proto_rawDescGZIP() []byte {
+	file_solution_func_solution_proto_rawDescOnce.Do(func() {
+		file_solution_func_solution_proto_rawDescData = protoimpl.X.CompressGZIP(unsafe.Slice(unsafe.StringData(file_solution_func_solution_proto_rawDesc), len(file_solution_func_solution_proto_rawDesc)))
 	})
-	return file_func_solution_proto_rawDescData
+	return file_solution_func_solution_proto_rawDescData
 }
 
-var file_func_solution_proto_msgTypes = make([]protoimpl.MessageInfo, 11)
-var file_func_solution_proto_goTypes = []any{
-	(*AddSolutionRsp)(nil),      // 0: oj.func.solution.AddSolutionRsp
-	(*Solution)(nil),            // 1: oj.func.solution.Solution
-	(*AddSolutionReq)(nil),      // 2: oj.func.solution.AddSolutionReq
-	(*QuerySolutionReq)(nil),    // 3: oj.func.solution.QuerySolutionReq
-	(*QuerySolutionRsp)(nil),    // 4: oj.func.solution.QuerySolutionRsp
-	(*CommonRsp)(nil),           // 5: oj.func.solution.CommonRsp
-	(*QueryRuntimeInfoReq)(nil), // 6: oj.func.solution.QueryRuntimeInfoReq
-	(*QueryRuntimeInfoRsp)(nil), // 7: oj.func.solution.QueryRuntimeInfoRsp
-	(*QueryLatestCodeReq)(nil),  // 8: oj.func.solution.QueryLatestCodeReq
-	(*QueryLatestCodeRsp)(nil),  // 9: oj.func.solution.QueryLatestCodeRsp
-	(*Code)(nil),                // 10: oj.func.solution.Code
+var file_solution_func_solution_proto_msgTypes = make([]protoimpl.MessageInfo, 13)
+var file_solution_func_solution_proto_goTypes = []any{
+	(*QueryUserProblemSolutionReq)(nil), // 0: oj.func.solution.QueryUserProblemSolutionReq
+	(*QueryUserProblemSolutionRsp)(nil), // 1: oj.func.solution.QueryUserProblemSolutionRsp
+	(*AddSolutionRsp)(nil),              // 2: oj.func.solution.AddSolutionRsp
+	(*Solution)(nil),                    // 3: oj.func.solution.Solution
+	(*AddSolutionReq)(nil),              // 4: oj.func.solution.AddSolutionReq
+	(*QuerySolutionReq)(nil),            // 5: oj.func.solution.QuerySolutionReq
+	(*QuerySolutionRsp)(nil),            // 6: oj.func.solution.QuerySolutionRsp
+	(*CommonRsp)(nil),                   // 7: oj.func.solution.CommonRsp
+	(*QueryRuntimeInfoReq)(nil),         // 8: oj.func.solution.QueryRuntimeInfoReq
+	(*QueryRuntimeInfoRsp)(nil),         // 9: oj.func.solution.QueryRuntimeInfoRsp
+	(*QueryLatestCodeReq)(nil),          // 10: oj.func.solution.QueryLatestCodeReq
+	(*QueryLatestCodeRsp)(nil),          // 11: oj.func.solution.QueryLatestCodeRsp
+	(*Code)(nil),                        // 12: oj.func.solution.Code
 }
-var file_func_solution_proto_depIdxs = []int32{
-	1,  // 0: oj.func.solution.QuerySolutionRsp.solution:type_name -> oj.func.solution.Solution
-	10, // 1: oj.func.solution.QueryLatestCodeRsp.lastCode:type_name -> oj.func.solution.Code
-	6,  // 2: oj.func.solution.SolutionServer.QueryRuntimeInfo:input_type -> oj.func.solution.QueryRuntimeInfoReq
-	8,  // 3: oj.func.solution.SolutionServer.QueryLatestCode:input_type -> oj.func.solution.QueryLatestCodeReq
-	3,  // 4: oj.func.solution.SolutionServer.QuerySolution:input_type -> oj.func.solution.QuerySolutionReq
-	2,  // 5: oj.func.solution.SolutionServer.AddTestSolution:input_type -> oj.func.solution.AddSolutionReq
-	2,  // 6: oj.func.solution.SolutionServer.AddSolution:input_type -> oj.func.solution.AddSolutionReq
-	7,  // 7: oj.func.solution.SolutionServer.QueryRuntimeInfo:output_type -> oj.func.solution.QueryRuntimeInfoRsp
-	9,  // 8: oj.func.solution.SolutionServer.QueryLatestCode:output_type -> oj.func.solution.QueryLatestCodeRsp
-	4,  // 9: oj.func.solution.SolutionServer.QuerySolution:output_type -> oj.func.solution.QuerySolutionRsp
-	0,  // 10: oj.func.solution.SolutionServer.AddTestSolution:output_type -> oj.func.solution.AddSolutionRsp
-	0,  // 11: oj.func.solution.SolutionServer.AddSolution:output_type -> oj.func.solution.AddSolutionRsp
-	7,  // [7:12] is the sub-list for method output_type
-	2,  // [2:7] is the sub-list for method input_type
+var file_solution_func_solution_proto_depIdxs = []int32{
+	3,  // 0: oj.func.solution.QuerySolutionRsp.solution:type_name -> oj.func.solution.Solution
+	12, // 1: oj.func.solution.QueryLatestCodeRsp.lastCode:type_name -> oj.func.solution.Code
+	8,  // 2: oj.func.solution.SolutionServer.QueryRuntimeInfo:input_type -> oj.func.solution.QueryRuntimeInfoReq
+	10, // 3: oj.func.solution.SolutionServer.QueryLatestCode:input_type -> oj.func.solution.QueryLatestCodeReq
+	5,  // 4: oj.func.solution.SolutionServer.QuerySolution:input_type -> oj.func.solution.QuerySolutionReq
+	4,  // 5: oj.func.solution.SolutionServer.AddTestSolution:input_type -> oj.func.solution.AddSolutionReq
+	4,  // 6: oj.func.solution.SolutionServer.AddSolution:input_type -> oj.func.solution.AddSolutionReq
+	0,  // 7: oj.func.solution.SolutionServer.QueryUserProblemSolution:input_type -> oj.func.solution.QueryUserProblemSolutionReq
+	9,  // 8: oj.func.solution.SolutionServer.QueryRuntimeInfo:output_type -> oj.func.solution.QueryRuntimeInfoRsp
+	11, // 9: oj.func.solution.SolutionServer.QueryLatestCode:output_type -> oj.func.solution.QueryLatestCodeRsp
+	6,  // 10: oj.func.solution.SolutionServer.QuerySolution:output_type -> oj.func.solution.QuerySolutionRsp
+	2,  // 11: oj.func.solution.SolutionServer.AddTestSolution:output_type -> oj.func.solution.AddSolutionRsp
+	2,  // 12: oj.func.solution.SolutionServer.AddSolution:output_type -> oj.func.solution.AddSolutionRsp
+	1,  // 13: oj.func.solution.SolutionServer.QueryUserProblemSolution:output_type -> oj.func.solution.QueryUserProblemSolutionRsp
+	8,  // [8:14] is the sub-list for method output_type
+	2,  // [2:8] is the sub-list for method input_type
 	2,  // [2:2] is the sub-list for extension type_name
 	2,  // [2:2] is the sub-list for extension extendee
 	0,  // [0:2] is the sub-list for field type_name
 }
 
-func init() { file_func_solution_proto_init() }
-func file_func_solution_proto_init() {
-	if File_func_solution_proto != nil {
+func init() { file_solution_func_solution_proto_init() }
+func file_solution_func_solution_proto_init() {
+	if File_solution_func_solution_proto != nil {
 		return
 	}
 	type x struct{}
 	out := protoimpl.TypeBuilder{
 		File: protoimpl.DescBuilder{
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
-			RawDescriptor: unsafe.Slice(unsafe.StringData(file_func_solution_proto_rawDesc), len(file_func_solution_proto_rawDesc)),
+			RawDescriptor: unsafe.Slice(unsafe.StringData(file_solution_func_solution_proto_rawDesc), len(file_solution_func_solution_proto_rawDesc)),
 			NumEnums:      0,
-			NumMessages:   11,
+			NumMessages:   13,
 			NumExtensions: 0,
 			NumServices:   1,
 		},
-		GoTypes:           file_func_solution_proto_goTypes,
-		DependencyIndexes: file_func_solution_proto_depIdxs,
-		MessageInfos:      file_func_solution_proto_msgTypes,
+		GoTypes:           file_solution_func_solution_proto_goTypes,
+		DependencyIndexes: file_solution_func_solution_proto_depIdxs,
+		MessageInfos:      file_solution_func_solution_proto_msgTypes,
 	}.Build()
-	File_func_solution_proto = out.File
-	file_func_solution_proto_goTypes = nil
-	file_func_solution_proto_depIdxs = nil
+	File_solution_func_solution_proto = out.File
+	file_solution_func_solution_proto_goTypes = nil
+	file_solution_func_solution_proto_depIdxs = nil
 }
